@@ -6,8 +6,6 @@
 	██║░░░░░██╔══██║██║░░██║░░░██║░░░██████████╗██╔══╝░░╚════██╗░╚═══██║░╚═══██║
 	███████╗██║░░██║╚█████╔╝░░░██║░░░╚██╔═██╔══╝███████╗██████╔╝░█████╔╝░█████╔╝
 	╚══════╝╚═╝░░╚═╝░╚════╝░░░░╚═╝░░░░╚═╝░╚═╝░░░╚══════╝╚═════╝░░╚════╝░░╚════╝░
-
-	Kod çalmaya geldiysen hoşgeldin kardeşim al götüne sok .ddd
 	
 ]]
 
@@ -47,7 +45,7 @@ end)
 
 Citizen.CreateThread(function()
 	while LAOT == nil do
-		TriggerEvent('LAOTCore:getSharedObject', function(obj) LAOT = obj end)
+		TriggerEvent('LAOTCore:GetObject', function(obj) LAOT = obj end)
 		Citizen.Wait(0)
 	end
 end)
@@ -106,12 +104,12 @@ Citizen.CreateThread(
 						yatismodu = 1
 						if isNight() and Stage == 0 then
 							if not LAOTDice[PedID] then
-								LAOT.DrawText3D(c.x, c.y, c.z, _U("LAOT_GLING_PLAYDICE"))
+								LAOT.Functions.DrawText3D(c.x, c.y, c.z, _U("LAOT_GLING_PLAYDICE"))
 								if IsControlJustPressed(0, Keys["E"]) then
 									PlayDice(PedID)
 								end
 							else
-								LAOT.DrawText3D(c.x, c.y, c.z, _U("LAOT_GLING_CANTPLAY"))
+								LAOT.Functions.DrawText3D(c.x, c.y, c.z, _U("LAOT_GLING_CANTPLAY"))
 							end
 						else
 							--
@@ -235,11 +233,11 @@ PlayDice = function(PedID)
 				end	
 
 			else
-				LAOT.Notification("error", _U("LAOT_GLING_CANTPLAY"))
+				LAOT.Functions.Notify("error", _U("LAOT_GLING_CANTPLAY"))
 			end
 
 		else
-			LAOT.Notification("error", _U("LAOT_GLING_NOTENOUGHMONEY"))
+			LAOT.Functions.Notify("error", _U("LAOT_GLING_NOTENOUGHMONEY"))
 		end
 	end)
 end

@@ -1,7 +1,7 @@
 ESX = nil
 LAOT = nil
 
-TriggerEvent('LAOTCore:getSharedObject', function(obj) LAOT = obj end)
+TriggerEvent('LAOTCore:GetObject', function(obj) LAOT = obj end)
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 LAOTDice = {
